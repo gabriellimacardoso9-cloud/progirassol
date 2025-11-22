@@ -58,13 +58,10 @@ function drawHeart(x, y, size) {
 }
 
 function draw() {
-  // Cor do fundo
-  ctx.fillStyle = '#ffcccc'; // vermelho claro
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   // Desenhar dois corações
-  drawHeart(canvas.width / 3, canvas.height / 2, 50);
-  drawHeart(2 * canvas.width / 3, canvas.height / 2, 50);
+  drawHeart(canvas.width / 5, canvas.height / 8, 50);
+  drawHeart(2 * canvas.width / 3, canvas.height / 8, 50);
 }
 
 draw();
