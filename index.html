@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mensagenzinha</title>
+<style>
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #fff0f5;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  .container {
+    position: relative;
+    display: inline-block;
+    padding: 20px;
+  }
+  h1 {
+    position: relative;
+    color: blueviolet;
+    font-size: 2em;
+    z-index: 1;
+    text-align: center;
+  }
+  canvas {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+  }
+</style>
+</head>
+<body>
+<h1>Você é linda!</h1>
+<div class="container">
+  <canvas id="heartCanvas" width="400" height="400"></canvas>
+  <h1>Você é muuito linda!</h1>
+</div>
+<script>
+  const canvas = document.getElementById('heartCanvas');
+canvas.width = 400; // largura em pixels
+canvas.height = 400; // altura em pixels
+const ctx = canvas.getContext('2d');
+
+function drawHeart(x, y, size) {
+  ctx.beginPath();
+  ctx.moveTo(x, y);
+  ctx.bezierCurveTo(x - size, y - size / 2, x - size, y + size / 3, x, y + size);
+  ctx.bezierCurveTo(x + size, y + size / 3, x + size, y - size / 2, x, y);
+  ctx.closePath();
+  ctx.fillStyle = 'blue';
+  ctx.fill();
+}
+
+function draw() {
+  // Cor do fundo
+  ctx.fillStyle = '#ffcccc'; // vermelho claro
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Desenhar dois corações
+  drawHeart(canvas.width / 3, canvas.height / 2, 50);
+  drawHeart(2 * canvas.width / 3, canvas.height / 2, 50);
+}
+
+draw();
+</script>
+</body>
+</html>
+
